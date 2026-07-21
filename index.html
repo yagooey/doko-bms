@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- I slopped basically all of the JS, but I wrote the entire article and took all of the screenshots. -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,11 +25,11 @@
             --text-color: #e1e1e1;
             --heading-color: #ffffff;
             --border-color: #303030;
-            --link-color: #62a0ea;          
+            --link-color: #62a0ea;
             --tab-inactive: #9a9996;
-            --code-bg: #1e1e1e;             
+            --code-bg: #1e1e1e;
             --code-border: #383838;
-            --notice-bg: #453603;           
+            --notice-bg: #453603;
             --notice-gradient-end: #453603;
         }
 
@@ -42,8 +43,13 @@
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: var(--heading-color);
         }
 
@@ -55,7 +61,7 @@
             border: 0;
             border-top: 1px solid var(--border-color);
         }
-        
+
         .instruction-img {
             max-width: 100%;
             height: auto;
@@ -96,8 +102,9 @@
             justify-content: center;
             border-bottom: 2px solid var(--border-color);
             margin-bottom: 20px;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
         }
+
         .tab-button {
             padding: 10px 20px;
             background: none;
@@ -109,43 +116,47 @@
             border-bottom: 2px solid transparent;
             margin-bottom: -2px;
         }
+
         .tab-button:hover {
             color: var(--heading-color);
         }
+
         .tab-button.active {
             color: var(--link-color);
             border-bottom: 2px solid var(--link-color);
         }
+
         .tab-content {
             display: none;
             padding: 10px 5px;
         }
+
         .tab-content.active {
             display: block;
         }
-        
+
         pre {
-           background-color: var(--code-bg);
-           border: 1px solid var(--code-border);
-           border-radius: 4px;
-           padding: 15px;
-           overflow-x: auto;
+            background-color: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
         }
 
         code {
             font-family: monospace;
             font-size: 14px;
-            color: #d14; 
+            color: #d14;
         }
 
         [data-theme="dark"] code {
             color: #ff6b81;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         .spoiler {
             background-color: #000;
             color: #000;
@@ -159,7 +170,7 @@
             background-color: transparent;
             color: inherit;
         }
-        
+
         .important-notice {
             background: var(--notice-bg);
             background-image: linear-gradient(to right, #ffb300, var(--notice-gradient-end));
@@ -171,81 +182,102 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="header-container">
-        <h1>Be-Music Source Guide for /doko/ers</h1>
-        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">おやすみ</button>
-    </div>
-    <h5>Last updated: July 20th 2026</h5>
-    <hr>
-    
-    <div class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#base-install">Base Installation</a></li>
-            <li><a href="#launcher">Launcher Settings</a></li>
-            <li><a href="#in-game">In-Game Settings</a></li>
-            <li><a href="#linux">Linux Installation</a></li>
-            <li><a href="#closing">Closing Remarks</a></li>
-        </ul>
-    </div>
-    <hr>
-    <div class="important-notice">
-    <h2>Warning: Set your system locale to Japanese. This is a Japanese game, stuff will break otherwise.</h2>
-    <h4>I'm doing this installation on Linux but the steps are for Windows. I will have a quick guide for Linux at the bottom.</h4>
-    </div>
-    <hr>
+    <div class="container">
+        <div class="header-container">
+            <h1>Be-Music Source Guide for /doko/ers</h1>
+            <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">おやすみ</button>
+        </div>
+        <h5>Last updated: July 21st 2026</h5>
+        <hr>
 
-    <h2 id="base-install">Base Installation</h2>
-    <ol>
-        <li>
-            <strong>Download base Beatoraja</strong> Grab <a href="https://mocha-repository.info/download.php" target="_blank">beatoraja-0.8.8-jre-win64</a> archive.
-            <img class="instruction-img" src="part1.png" alt="Base download screenshot">
-        </li>
-        <li>Extract the archive</li> 
-        <li>Download LR2oraja Endless Dream ArenaEX. <strong>You can find it <a href="https://github.com/limb-soup/lr2oraja-endlessdream-arenaex/releases" target="_blank">here.</a></strong></li>
-        <li>
-            Rename the newly downloaded <strong>lr2oraja-0.8.8-endlessdream-windows-pre0.3.2.jar</strong> to <strong>beatoraja.jar.</strong>
-            <img class="instruction-img" src="part2.png" alt="Rename jar screenshot">
-        </li>
-        <li>
-            Drag and drop the newly renamed Beatoraja file into the game folder and overwrite the old one.
-            <img class="instruction-img" src="part3.png" alt="Overwrite jar screenshot">
-        </li>
-        <li><strong>Open beatoraja.exe.</strong> You will probably get a popup about an update log, close it out it doesn't matter. Next we're going to move on to the launcher settings</li>
-    </ol>
-    
-    <hr>
-    
-    <h2 id="launcher">LAUNCHER SETTINGS (READ THE ENTIRE THING)</h2>
-    
-    <div class="tab-menu">
-        <button class="tab-button active" onclick="switchTab(event, 'player-video')">Player ID & Video</button>
-        <button class="tab-button" onclick="switchTab(event, 'audio')">Audio</button>
-        <button class="tab-button" onclick="switchTab(event, 'input-resource')">Input & Resource</button>
-        <button class="tab-button" onclick="switchTab(event, 'music-play')">Music Select & Play Option</button>
-        <button class="tab-button" onclick="switchTab(event, 'skin-other')">Skin & Other</button>
-    </div>
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#base-install">Base Installation</a></li>
+                <li><a href="#launcher">Launcher Settings</a></li>
+                <li><a href="#in-game">In-Game Settings</a></li>
+                <li><a href="#compendium">Compendium</a></li>
+                <li><a href="#linux">Linux Installation</a></li>
+            </ul>
+        </div>
+        <hr>
+        <div class="important-notice">
+            <h2>Warning: Set your system locale to Japanese. This is a Japanese game, stuff will break otherwise.</h2>
+            <h4>I'm doing this installation on Linux but the steps are for Windows. I will have a quick guide for Linux
+                at the bottom.</h4>
+        </div>
+        <hr>
 
-    <!-- TAB 1 -->
-    <div id="player-video" class="tab-content active">
-        <h3>Player ID and Video</h3>
+        <h2 id="base-install">Base Installation</h2>
         <ol>
-            <li><strong>Give yourself a name!</strong> You can always change it when joining a lobby, but it's like naming your self-insert h-game protagonist. <em>You're the DJ of this gig!</em></li>
-            <li><strong>Set the game to exclusive fullscreen!</strong> This will help minimize audio lag in-game. As the game is keysounded it will make it a lot more enjoyable. It will also make finding your correct offset easier if you continue playing BMS alone.</li>
-            <li>The max FPS for this game is 1000, but I find setting it to multiples of your refresh rate to be the best way of minimizing screen tearing. <strong>DO NOT USE VSYNC!!</strong></li>
-            <li>You can turn off BGAs (BackGround Animations) if you want but it's soulless and tryhard.</li>
+            <li>
+                <strong>Download base Beatoraja</strong> Grab <a href="https://mocha-repository.info/download.php"
+                    target="_blank">beatoraja-0.8.8-jre-win64</a> archive.
+                <img class="instruction-img" src="part1.png" alt="Base download screenshot">
+            </li>
+            <li>Extract the archive</li>
+            <li>Download LR2oraja Endless Dream ArenaEX. <strong>You can find it <a
+                        href="https://github.com/limb-soup/lr2oraja-endlessdream-arenaex/releases"
+                        target="_blank">here.</a></strong></li>
+            <li>
+                Rename the newly downloaded <strong>lr2oraja-0.8.8-endlessdream-windows-pre0.3.2.jar</strong> to
+                <strong>beatoraja.jar.</strong>
+                <img class="instruction-img" src="part2.png" alt="Rename jar screenshot">
+            </li>
+            <li>
+                Drag and drop the newly renamed Beatoraja file into the game folder and overwrite the old one.
+                <img class="instruction-img" src="part3.png" alt="Overwrite jar screenshot">
+            </li>
+            <li><strong>Open beatoraja.exe.</strong> You will probably get a popup about an update log, close it out it
+                doesn't matter. Next we're going to move on to the launcher settings</li>
         </ol>
-        <img class="instruction-img" src="part4.png" alt="Player and Video configuration screenshot">
+
+        <hr>
+
+        <h2 id="launcher">LAUNCHER SETTINGS (READ THE ENTIRE THING)</h2>
+
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="switchTab(event, 'player-video')">Player ID & Video</button>
+            <button class="tab-button" onclick="switchTab(event, 'audio')">Audio</button>
+            <button class="tab-button" onclick="switchTab(event, 'input-resource')">Input & Resource</button>
+            <button class="tab-button" onclick="switchTab(event, 'music-play')">Music Select & Play Option</button>
+            <button class="tab-button" onclick="switchTab(event, 'skin-other')">Skin & Other</button>
+        </div>
+
+        <!-- TAB 1 -->
+        <div id="player-video" class="tab-content active">
+            <h3>Player ID and Video</h3>
+            <ol>
+                <li><strong>Give yourself a name!</strong> You can always change it when joining a lobby, but it's like
+                    naming your self-insert h-game protagonist. <em>You're the DJ of this gig!</em></li>
+                <li>The max FPS for this game is 1000, but I find setting it to multiples of your refresh rate to be the
+                    best way of minimizing screen tearing.
+                    <br>
+                    <div class=important-notice>
+                        <h3>IMPORTANT TANGENT ON FPS</h3>Go for the highest FPS possible with your setup, Beatoraja has
+                        an issue where it can drop inputs if your FPS is too low.<br><strong>DO NOT USE VSYNC!!</strong>
+                </li>
+            </ol>
+            <img class="instruction-img" src="part4.png" alt="Player and Video configuration screenshot">
+        </div>
     </div>
 
     <!-- TAB 2 -->
     <div id="audio" class="tab-content">
         <h3>Audio Settings</h3>
-        <p><strong>Do not touch</strong> unless you want to mess around with in-game volume or you have a special audio device that has a driver.</p>
-        <img class="instruction-img" src="xenia-12.png" alt="Audio settings screenshot">
+        <h4>Optimize Your Audio Settings</h4>
+        <ol>
+            <li>Every set-up is different, try using both OpenAL and PortAudio to see which one performs better.</li>
+            <li>Selecting <strong>PortAudio</strong> will allow for integration with ASIO audio devices, may allow for
+                lower audio latency as well.</li>
+            <li>Check <strong>Normalize Chart Volume</strong> if you want to automatically normalize adjust all
+                keysounds and background tracks. This is done before the song is played and is stored in disk cache.
+            </li>
+        </ol>
+        <img class="instruction-img" src="audio.png">
     </div>
 
     <!-- TAB 3 -->
@@ -253,83 +285,116 @@
         <h3>Input Settings</h3>
         <ol>
             <li>Make sure your game is on 7KEY.</li>
-            <li>If you have an actual controller like a Phoenixwan LMT or one of the newer official Konami controllers make sure to turn on analog scratch.</li>
-            <li>If you're using a keyboard you can scratch the turntable with the mouse for some reason I would not recommend it but the option is there.</li>
+            <li>If you have an actual controller like a Phoenixwan LMT or one of the newer official Konami controllers
+                make sure to turn on analog scratch.</li>
+            <li>Lowering the minimum input duration and scratch threshold can be better for analog turntables.</li>
         </ol>
         <img class="instruction-img" src="part5.png" alt="Input configuration screenshot">
-        
+
         <h3>Resource Settings</h3>
         <ol>
-            <li>Next to <strong>BMS Path</strong> set the downloads folder to somewhere that you won't mind filling with a lot of data.</li>
-            <li>If you downloaded the songs you need to extract them and use the plus icon to point it to the directory where all of the songs are stored. <strong>Unlike other games BMS songs are stored in standard directories.</strong> The game will scan these directories, which is why having a Japanese locale is important.</li>  
+            <li>Next to <strong>BMS Path</strong> set the downloads folder to somewhere that you won't mind filling with
+                a lot of data.</li>
+            <li>If you downloaded the songs you need to extract them and use the plus icon to point it to the directory
+                where all of the songs are stored. <strong>Unlike other games BMS songs are stored in standard
+                    directories.</strong> The game will scan these directories, which is why having a Japanese locale is
+                important.</li>
         </ol>
-        
+
         <div class="important-notice">
             <h4>IMPORTANT INFORMATION ON TABLES</h4>
-            <h5>Make sure you load anons table from <a href="https://arch.b4k.dev/vm/thread/2714849/#2731418" target="_blank">this post.</a></h5>
+            <h5>Make sure you load anons table from <a href="https://arch.b4k.dev/vm/thread/2714849/#2731418"
+                    target="_blank">this post.</a></h5>
             <ol>
-                <li>Remove all default tables by selecting all of them on the left side and using either the right arrow or the minus. The former sends them to the deactivated tables and won't load in-game while the latter will delete them entirely.</li>
-                <li>Paste the URL that you got from the post into the <strong>Acti...</strong> area and press the plus icon.</li>
-                <li>Now when it's added press either the <strong>Load new tables</strong> or the <strong>Reload all tables</strong> button.</li>
+                <li>Tables are third party lists which contain information (usually difficulty ratings) about BMS. It
+                    will help you organize your library.</li>
+                <li>When loading the game for the first time no tables will be loaded. Use the <strong>Reload all
+                        tables</strong> button to load them.</li>
+                <li>Remove all default tables by selecting all of them on the left side and using either the right arrow
+                    or the minus. The former sends them to the deactivated tables and won't load in-game while the
+                    latter will delete them entirely.</li>
+                <li>Paste the URL that you got from the post into the <strong>Acti...</strong> area and press the plus
+                    icon.</li>
+                <li>Now when it's added press either the <strong>Load new tables</strong> or the <strong>Reload all
+                        tables</strong> button.</li>
             </ol>
         </div>
         <img class="instruction-img" src="part6.png" alt="Resource and table configuration screenshot">
     </div>
-    
+
     <!-- TAB 4 -->
     <div id="music-play" class="tab-content">
         <h3>Music Select</h3>
         <p>You don't really need to change anything here</p>
 
         <h3>Play Option</h3>
-        <p>You can enable some options in here, but most are already available in-game.</p>
-        <ol>
-            <li><strong>Enable Lanecover</strong> to cover the top part of the lanes. Adjustable, helps with reading.</li>
-            <li><strong>Enable Lift</strong> does the same thing as Lanecover except it covers the bottom of the screen while bringing the judgment line up.</li>
-        </ol>
-        <h4>Here's what it looks like when both of them are enabled in-game:</h4>
-        <img class="instruction-img" src="lanecover-lift.png">
+        <p>You can enable some options in here, but most are already available in-game with the start-select menu.</p>
     </div>
-    
+
     <!-- TAB 5 -->
     <div id="skin-other" class="tab-content">
         <h3>Skins</h3>
         <ol>
             <li>In the game folder you'll find a subfolder named <strong>skin.</strong></li>
-            <li>If you hate the default ModernChic skin you can find a list of skins that work with the game <a href="https://github.com/wcko87/beatoraja-english-guide/wiki/List-of-beatoraja-Skins" target="_blank">here.</a>
+            <li>If you hate the default ModernChic skin you can find a list of skins that work with the game <a
+                    href="https://github.com/wcko87/beatoraja-english-guide/wiki/List-of-beatoraja-Skins"
+                    target="_blank">here.</a>
                 <ul>
-                    <li>I (and another anon) recommend WMII as a good starting place. Download <a href="https://drive.google.com/file/d/1afu_UpDq_UKEgK9B10d7n2tIK_uV41JQ/view?usp=sharing" target="_blank"> here (Warning: Google Drive link.)</a></li>
-                    <li>Another good choice is <a href="https://kaidou0912.hatenablog.com/entry/2024/01/28/201152" target="_blank">EC:FN</a> although the archive is protected by a riddle that only the strongest JOPs with 10,000 hours in Anki can solve. Spoiler: it's <span class="spoiler">donburako</span>.</li>
-                    <li>Finally there's <a href="https://www.bmsworld.nz/%E2%86%A7%E2%86%A7-themes-%E2%86%A7%E2%86%A7/litone-9-1080p/" target="_blank">LITONE 9</a> which is just a copy of IIDX Rootage.</li>
+                    <li>I (and another anon) recommend WMII as a good starting place. Download <a
+                            href="https://drive.google.com/file/d/1afu_UpDq_UKEgK9B10d7n2tIK_uV41JQ/view?usp=sharing"
+                            target="_blank"> here (Warning: Google Drive link.)</a></li>
+                    <li>Another good choice is <a href="https://kaidou0912.hatenablog.com/entry/2024/01/28/201152"
+                            target="_blank">EC:FN</a> although the archive is protected by a riddle that only the
+                        strongest JOPs with 10,000 hours in Anki can solve. Spoiler: it's <span
+                            class="spoiler">donburako</span>.</li>
+                    <li>Finally there's <a
+                            href="https://www.bmsworld.nz/%E2%86%A7%E2%86%A7-themes-%E2%86%A7%E2%86%A7/litone-9-1080p/"
+                            target="_blank">LITONE 9</a> which is just a copy of IIDX Rootage.</li>
                 </ul>
             </li>
-            <li>Once you've downloaded a skin you can put it in the <strong>skin</strong> folder and the game will automatically search it when you restart.</li>
-            <li>To enable skins select the correct <em>Category</em> from the drop down and then the <em>Skin</em> that you want to use.</li>
-            <li>You can change skin options in here and in-game with the <strong>F5</strong> menu. Set the playside that you prefer. If you're new I recommend setting the <strong>Judge Detail</strong> setting to either <strong>FAST/SLOW</strong> or <strong>+-ms</strong></li>
+            <li>Once you've downloaded a skin you can put it in the <strong>skin</strong> folder and the game will
+                automatically search it when you restart.</li>
+            <li>Skins are split into categories:
+                <ul>
+                    <li><strong>PLAY</strong> — When you play a song.</li>
+                    <li><strong>MUSIC SELECT</strong> — Main menu when you first load into the game.</li>
+                    <li><strong>DECIDE</strong> — Is the cut-in when you select a song.</li>
+                    <li><strong>RESULT</strong> — After playing a song it where you see your performance.</li>
+                </ul>
+                When choosing a skin in the launcher you need to select the <strong>Category</strong> that it belongs to
+                and then the <strong>Skin</strong>
+            </li>
+            <li>You can change skin options in here and in-game with the <strong>F5</strong> menu. Set the playside that
+                you prefer. If you're new I recommend setting the <strong>Judge Detail</strong> setting to either
+                <strong>FAST/SLOW</strong> or <strong>+-ms</strong></li>
         </ol>
         <img class="instruction-img" src="part7.png" alt="Skin selector panel settings">
-        
+
         <h3>Other</h3>
         <ol>
             <li>Follow anon's riddle again and you'll find a download URL.</li>
-            <li>Make sure that <strong>Enable automatic download of BMS by HTTP</strong> is enabled and <strong>Ginger</strong> is selected and the <strong>Override Http Server URL</strong> is <a href="https://arch.b4k.dev/vm/thread/2714849/#2731418" target="_blank">anon's server.</a></li>
+            <li>Make sure that <strong>Enable automatic download of BMS by HTTP</strong> is enabled and
+                <strong>Ginger</strong> is selected and the <strong>Override Http Server URL</strong> is <a
+                    href="https://arch.b4k.dev/vm/thread/2714849/#2731418" target="_blank">anon's server.</a></li>
         </ol>
         <img class="instruction-img" src="part8.png" alt="HTTP auto download config settings">
     </div>
-    
+
     <hr>
-    
+
     <h2 id="in-game">IN-GAME</h2>
     <h3>We're in the home stretch now, only a few things left to change.</h3>
     <ol>
-        <li>Boot the game with the <strong>Play</strong> button in the bottom left. When you reach the main menu, press <strong>6</strong> on your keyboard to bring up the keybinds menu.</li>
+        <li>Boot the game with the <strong>Play</strong> button in the bottom left. When you reach the main menu, press
+            <strong>6</strong> on your keyboard to bring up the keybinds menu.</li>
         <li>Move over to <strong>7KEY</strong> using the <strong>right arrow key.</strong></li>
         <li>
             The default keybinds are shit, if you're playing on keyboard I recommend these settings.
             <img class="instruction-img" src="keybinds.png" alt="Recommended keyboard configuration map">
             <strong>TIP: You can use your mouse to navigate <em>most of</em> the main menu.</strong>
         </li>
-        <li>If the table loaded correctly you should have a tab in the main menu on the right named <strong>B******** I**X</strong></li>
+        <li>If the table loaded correctly you should have a tab in the main menu on the right named <strong>B********
+                I**X</strong></li>
         <li>
             <strong>Press F5 to open the mod menu</strong> and press <strong>Show Arena Menu</strong>
             <img class="instruction-img" src="part9.png" alt="Arena option button menu configuration step">
@@ -337,61 +402,82 @@
         <li>Connect to anon's server.</li>
         <li>Wait for other anons to connect to the lobby and koko with them.</li>
     </ol>
-    
+    <h4>In the <a href="#compendium">Compendium</a> section you'll find a list of keybinds for the game, I recommend
+        reading through it to familiarize yourself.</h4>
+
     <hr>
-        
+
+
+    <h2 id="compendium">Compendium</h2>
+    <ul>
+        <li><a href="https://raw.githubusercontent.com/seraxis/lr2oraja-endlessdream/refs/heads/main/assets/manual/hotkeys.txt"
+                target="_blank">List of LR2oraja Endless Dream keybinds.</a> Also available in the Beatoraja
+            <strong>manual</strong> folder located in the game root directory.
+        <li>Consider using the <a href="https://wcko87.github.io/beatoraja-english-guide/" target="_blank">Beatoraja
+                guide</a> and the <a href="https://iidx.org/" target="_blank">IIDX guide</a> for figuring out how to
+            play the game at a higher level. The latter focuses on an actual cab but the advice still works.</li>
+    </ul>
+    </div>
+    <hr>
+
     <h2 id="linux">Linux Guide</h2>
     <h3>When playing the game on Linux it is largely the same, although there are a few key differences.</h3>
     <ol>
-        <li>Make sure to download the <a href="https://mocha-repository.info/download.php" target="_blank">beatoraja-0.8.8-modernchic</a> version instead of the bundled Windows JRE version.</li>
-        <li>Beatoraja requires JRE 17 or higher, the recommended JRE is <a href="https://bell-sw.com/pages/downloads/?version=java-17" target="_blank">Liberica.</a></li>
-        <li>You're going to be running the game via the <code>beatoraja-config.command</code> script included in the non-Windows version.</li>
-        <li>Make sure to download the Linux version of <a href="https://github.com/limb-soup/lr2oraja-endlessdream-arenaex/releases" target="_blank">LR2oraja Endless Dream ArenaEX</a> instead of the Windows one.</li>
-        <li>If you're getting errors make sure the default JRE is set correctly. On Arch you can use the <code>archlinux-java</code> command.</li>
-        <li>Due to the differences in file path managment, some stuff might break due to capitalized characters that would otherwise be ignored on Windows. This has happened to me exactly once and never again but I thought it was worth mentioning.</li>
+        <li>Make sure to download the <a href="https://mocha-repository.info/download.php"
+                target="_blank">beatoraja-0.8.8-modernchic</a> version instead of the bundled Windows JRE version.</li>
+        <li>Beatoraja requires JRE 17 or higher, the recommended JRE is <a
+                href="https://bell-sw.com/pages/downloads/?version=java-17" target="_blank">Liberica.</a></li>
+        <li>You're going to be running the game via the <code>beatoraja-config.command</code> script included in the
+            non-Windows version.</li>
+        <li>Make sure to download the Linux version of <a
+                href="https://github.com/limb-soup/lr2oraja-endlessdream-arenaex/releases" target="_blank">LR2oraja
+                Endless Dream ArenaEX</a> instead of the Windows one.</li>
+        <li>This game requires the correct <a href="https://github.com/openjdk/jfx" target="_blank">OpenJFX</a> version
+            for your Java. Most package managers do not bundle it together, both the JRE and the JFX versions need to
+            match otherwise it won't work.</li>
+        <li>If you're getting errors make sure the default JRE is set correctly. On Arch you can use the
+            <code>archlinux-java</code> command.</li>
+        <li>Due to the differences in file path managment, some stuff might break due to capitalized characters that
+            would otherwise be ignored on Windows. This has happened to me exactly once and never again but I thought it
+            was worth mentioning.</li>
     </ol>
-    
     <hr>
-        
-    <h2 id="closing">Closing Remarks</h2>
-    <ul>
-        <li>If you're new to 7 key in general I recommend playing 1s and 2s. Unfortunately the game doesn't really show you the difficulty until you download the maps. If you're having trouble the best way to improve is to play more.</li>
-        <li>Consider using the <a href="https://wcko87.github.io/beatoraja-english-guide/" target="_blank">Beatoraja guide</a> and the <a href="https://iidx.org/" target="_blank">IIDX guide</a> for figuring out how to play the game at a higher level. The latter focuses on an actual cab but the advice still works.</li>
-    </ul>
-</div>
 
-<script>
-    function switchTab(event, tabId) {
-        const contents = document.querySelectorAll('.tab-content');
-        contents.forEach(content => content.classList.remove('active'));
 
-        const buttons = document.querySelectorAll('.tab-button');
-        buttons.forEach(button => button.classList.remove('active'));
 
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
+    <script>
+        function switchTab(event, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
 
-    function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        document.getElementById('theme-toggle').innerText = theme === 'dark' ? 'おはよう' : 'おやすみ';
-    }
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
 
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(targetTheme);
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDark) {
-            setTheme('dark');
-        } else {
-            setTheme('light');
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
         }
-    });
-</script>
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            document.getElementById('theme-toggle').innerText = theme === 'dark' ? 'おはよう' : 'おやすみ';
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(targetTheme);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+        });
+    </script>
 
 </body>
+
 </html>
